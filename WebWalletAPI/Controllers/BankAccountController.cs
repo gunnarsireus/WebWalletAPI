@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using WebWalletAPI;
+using WebWalletAPI.Data;
 using WebWalletAPI.Models;
 
 namespace WebWalletAPIAPI.Controllers
@@ -15,7 +13,7 @@ namespace WebWalletAPIAPI.Controllers
         [HttpGet]
         public IEnumerable<BankAccount> GetBankAccounts()
         {
-            var dataAccess = new WebWalletAPI.Data.DataAccess();
+            var dataAccess = new DataAccess();
             return dataAccess.GetBankAccounts();
         }
 
@@ -23,23 +21,23 @@ namespace WebWalletAPIAPI.Controllers
         [HttpGet("{id}")]
         public BankAccount GetBankAccount(string id)
         {
-            var dataAccess = new WebWalletAPI.Data.DataAccess();
+            var dataAccess = new DataAccess();
             return dataAccess.GetBankAccount(new Guid(id));
         }
 
         // POST api/bankaccount
         [HttpPost]
-        public void AddBankAccount([FromBody]BankAccount bankAccount)
+        public void AddBankAccount([FromBody] BankAccount bankAccount)
         {
-            var dataAccess = new WebWalletAPI.Data.DataAccess();
+            var dataAccess = new DataAccess();
             dataAccess.AddBankAccount(bankAccount);
         }
 
         // PUT api/bankaccount/5
         [HttpPut("{id}")]
-        public void UpdateBankAccount([FromBody]BankAccount bankAccount)
+        public void UpdateBankAccount([FromBody] BankAccount bankAccount)
         {
-            var dataAccess = new WebWalletAPI.Data.DataAccess();
+            var dataAccess = new DataAccess();
             dataAccess.UpdateBankAccount(bankAccount);
         }
 
@@ -47,7 +45,7 @@ namespace WebWalletAPIAPI.Controllers
         [HttpDelete("{id}")]
         public void DeleteBankAccount(string id)
         {
-            var dataAccess = new WebWalletAPI.Data.DataAccess();
+            var dataAccess = new DataAccess();
             dataAccess.DeleteBankAccount(new Guid(id));
         }
     }

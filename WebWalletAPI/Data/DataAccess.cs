@@ -1,21 +1,24 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 using WebWalletAPI.Models;
 
 namespace WebWalletAPI.Data
 {
     public class DataAccess
     {
-        readonly DbContextOptionsBuilder<WebWalletAPIContext> _optionsBuilder = new DbContextOptionsBuilder<WebWalletAPIContext>();
+        private readonly DbContextOptionsBuilder<WebWalletAPIContext> _optionsBuilder =
+            new DbContextOptionsBuilder<WebWalletAPIContext>();
+
         public DataAccess()
         {
             _optionsBuilder.UseSqlite("DataSource=App_Data/WebWallet.db");
         }
+
         public ICollection<BankAccount> GetBankAccounts()
         {
-            using ( var context = new WebWalletAPIContext(_optionsBuilder.Options))
+            using (var context = new WebWalletAPIContext(_optionsBuilder.Options))
             {
                 return context.BankAccount.ToList();
             }
@@ -23,10 +26,9 @@ namespace WebWalletAPI.Data
 
         public BankAccount GetBankAccount(Guid id)
         {
-
             using (var context = new WebWalletAPIContext(_optionsBuilder.Options))
             {
-                return context.BankAccount.SingleOrDefault(o=>o.Id==id);
+                return context.BankAccount.SingleOrDefault(o => o.Id == id);
             }
         }
 
