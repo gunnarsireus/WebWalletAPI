@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using WebWalletAPI.Data;
 using WebWalletAPI.Models;
 
-namespace WebWalletAPIAPI.Controllers
+namespace WebWalletAPI.Controllers
 {
     [Route("api/[controller]")]
     public class TransactionController : Controller
