@@ -11,11 +11,10 @@ namespace WebWalletAPI.Controllers
     public class TransactionController : Controller
     {
 	    private readonly UnitOfWork _unitOfWork;
-
-	    public TransactionController()
+	    public TransactionController(WebWalletApiContext context)
 	    {
-		    _unitOfWork = new UnitOfWork(new WebWalletApiContext(new DbContextOptionsBuilder<WebWalletApiContext>().UseSqlite("DataSource=App_Data/WebWallet.db").Options));
-	    }
+		    _unitOfWork = new UnitOfWork(context);
+		}
 		// GET api/transaction
 		[HttpGet]
         public IEnumerable<Transaction> Get()

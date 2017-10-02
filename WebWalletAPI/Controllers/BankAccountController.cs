@@ -12,9 +12,9 @@ namespace WebWalletAPI.Controllers
     public class BankAccountController : Controller
     {
 	    private readonly UnitOfWork _unitOfWork;
-	    public BankAccountController()
+		public BankAccountController(WebWalletApiContext context)
 	    {
-			_unitOfWork = new UnitOfWork(new WebWalletApiContext(new DbContextOptionsBuilder<WebWalletApiContext>().UseSqlite("DataSource=App_Data/WebWallet.db").Options));
+			_unitOfWork = new UnitOfWork(context);
 		}
         // GET api/bankaccount
         [HttpGet]
