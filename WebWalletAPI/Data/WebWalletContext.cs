@@ -3,9 +3,9 @@ using WebWalletAPI.Models;
 
 namespace WebWalletAPI.Data
 {
-    public class WebWalletAPIContext : DbContext
+    public class WebWalletApiContext : DbContext
     {
-        public WebWalletAPIContext(DbContextOptions options)
+        public WebWalletApiContext(DbContextOptions options)
             : base(options)
         {
         }

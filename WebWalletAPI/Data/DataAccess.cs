@@ -8,8 +8,8 @@ namespace WebWalletAPI.Data
 {
     public class DataAccess
     {
-        private readonly DbContextOptionsBuilder<WebWalletAPIContext> _optionsBuilder =
-            new DbContextOptionsBuilder<WebWalletAPIContext>();
+        private readonly DbContextOptionsBuilder<WebWalletApiContext> _optionsBuilder =
+            new DbContextOptionsBuilder<WebWalletApiContext>();
 
         public DataAccess()
         {
@@ -18,7 +18,7 @@ namespace WebWalletAPI.Data
 
         public ICollection<BankAccount> GetBankAccounts()
         {
-            using (var context = new WebWalletAPIContext(_optionsBuilder.Options))
+            using (var context = new WebWalletApiContext(_optionsBuilder.Options))
             {
                 return context.BankAccount.ToList();
             }
@@ -26,7 +26,7 @@ namespace WebWalletAPI.Data
 
         public BankAccount GetBankAccount(Guid id)
         {
-            using (var context = new WebWalletAPIContext(_optionsBuilder.Options))
+            using (var context = new WebWalletApiContext(_optionsBuilder.Options))
             {
                 return context.BankAccount.SingleOrDefault(o => o.Id == id);
             }
@@ -34,7 +34,7 @@ namespace WebWalletAPI.Data
 
         public void AddBankAccount(BankAccount bankAccount)
         {
-            using (var context = new WebWalletAPIContext(_optionsBuilder.Options))
+            using (var context = new WebWalletApiContext(_optionsBuilder.Options))
             {
                 context.BankAccount.Add(bankAccount);
                 context.SaveChanges();
@@ -43,7 +43,7 @@ namespace WebWalletAPI.Data
 
         public void DeleteBankAccount(Guid id)
         {
-            using (var context = new WebWalletAPIContext(_optionsBuilder.Options))
+            using (var context = new WebWalletApiContext(_optionsBuilder.Options))
             {
                 var bankAccount = GetBankAccount(id);
                 context.BankAccount.Remove(bankAccount);
@@ -53,7 +53,7 @@ namespace WebWalletAPI.Data
 
         public void UpdateBankAccount(BankAccount bankAccount)
         {
-            using (var context = new WebWalletAPIContext(_optionsBuilder.Options))
+            using (var context = new WebWalletApiContext(_optionsBuilder.Options))
             {
                 context.BankAccount.Update(bankAccount);
                 context.SaveChanges();
@@ -62,7 +62,7 @@ namespace WebWalletAPI.Data
 
         public ICollection<Transaction> GetTransactions()
         {
-            using (var context = new WebWalletAPIContext(_optionsBuilder.Options))
+            using (var context = new WebWalletApiContext(_optionsBuilder.Options))
             {
                 return context.Transaction.ToList();
             }
@@ -70,7 +70,7 @@ namespace WebWalletAPI.Data
 
         public Transaction GetTransaction(Guid id)
         {
-            using (var context = new WebWalletAPIContext(_optionsBuilder.Options))
+            using (var context = new WebWalletApiContext(_optionsBuilder.Options))
             {
                 return context.Transaction.SingleOrDefault(o => o.Id == id);
             }
@@ -78,7 +78,7 @@ namespace WebWalletAPI.Data
 
         public void AddTransaction(Transaction bankAccount)
         {
-            using (var context = new WebWalletAPIContext(_optionsBuilder.Options))
+            using (var context = new WebWalletApiContext(_optionsBuilder.Options))
             {
                 context.Transaction.Add(bankAccount);
                 context.SaveChanges();
@@ -87,7 +87,7 @@ namespace WebWalletAPI.Data
 
         public void DeleteTransaction(Guid id)
         {
-            using (var context = new WebWalletAPIContext(_optionsBuilder.Options))
+            using (var context = new WebWalletApiContext(_optionsBuilder.Options))
             {
                 var transaction = GetTransaction(id);
                 context.Transaction.Remove(transaction);
@@ -97,7 +97,7 @@ namespace WebWalletAPI.Data
 
         public void UpdateTransaction(Transaction bankAccount)
         {
-            using (var context = new WebWalletAPIContext(_optionsBuilder.Options))
+            using (var context = new WebWalletApiContext(_optionsBuilder.Options))
             {
                 context.Transaction.Update(bankAccount);
                 context.SaveChanges();
