@@ -25,7 +25,7 @@ kunna köras felfritt.
 
 Köra programmet
 Hämta koden från github, öppna med Visual Studio 2017. När koden är öppnad tryck F5 för att 
-köra i debuggläge. Starta först WebwalletAPI. En browser öppnas och texten ["WebWalletAPI started"] 
+köra i debuggläge. Starta först WebwalletAPI. En browser öppnas och APIet visas med Swagger. 
 skrivs ut.
 
 Därefter tryck F5 i WebWalletClient. När programmet har öppnat, registrera dig som användare 
